@@ -1,5 +1,6 @@
 package com.proyecto.Pokedex.Dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,5 +19,8 @@ public class Equipo {
 
     // EQUIPO DE POKEMONS ENTRENADOR - EQUIPO 1:1
     @OneToMany(mappedBy = "equipo")
+    @JsonIgnore
     private List<Pokemon> pokemons;
+
+
 }

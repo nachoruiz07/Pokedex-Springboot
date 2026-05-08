@@ -30,7 +30,9 @@ public class Gimnasio {
     @OneToMany(mappedBy = "gimnasio")
     private List<Medalla> medallas;
 
-
-
+    // EL LIDER DEL GIMNASIO GIMNASIO - ENTRENADOR 1:1
+    @OneToOne
+    @JoinColumn(name = "lider_id")
+    private Entrenador entrenador;
 
 }

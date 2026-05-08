@@ -23,5 +23,8 @@ public class Medalla {
     @JoinColumn(name = "entrenador_id")
     private Entrenador entrenador;
 
-    
+    // ENTREGA DE MEDALLAS EN UN GIMNASIO GIMNASIO - MEDALLAS 1:M
+    @ManyToOne
+    @JoinColumn(name = "gimnasio_id")
+    private Gimnasio gimnasio;
 }

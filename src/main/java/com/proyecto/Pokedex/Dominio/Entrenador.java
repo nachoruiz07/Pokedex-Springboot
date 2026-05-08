@@ -1,5 +1,6 @@
 package com.proyecto.Pokedex.Dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -22,7 +23,6 @@ public class Entrenador {
     private String nombre;
     @Column(nullable = false)
     @Min(0)
-    @NotBlank(message = "La edad es obligatoria")
     private Integer edad;
     @Column(nullable = false)
     @NotBlank(message = "La ciudad es obligatoria")
@@ -39,8 +39,12 @@ public class Entrenador {
     private Equipo equipo;
 
     // MEDALLAS QUE POSEE EL ENTRENADOR ENTRENADOR - MEDALLAS 1:M
-    @Column(nullable = true)
     @OneToMany
-    @JoinColumn(name = "medallas_id")
+    @JsonIgnore
     private List<Medalla> medallas;
+
+    // EL LIDER DEL GIMNASIO GIMNASIO - ENTRENADOR 1:1
+    @OneToOne(mappedBy = "entrenador")
+    @JsonIgnore
+    private Gimnasio gimnasio;
 }
