@@ -1,5 +1,6 @@
 package com.proyecto.Pokedex.Dominio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -28,6 +29,7 @@ public class Gimnasio {
 
     // ENTREGA DE MEDALLAS EN UN GIMNASIO GIMNASIO - MEDALLAS 1:M
     @OneToMany(mappedBy = "gimnasio")
+    @JsonIgnore
     private List<Medalla> medallas;
 
     // EL LIDER DEL GIMNASIO GIMNASIO - ENTRENADOR 1:1
